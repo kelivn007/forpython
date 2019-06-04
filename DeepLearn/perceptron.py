@@ -12,9 +12,9 @@ class Perceptron(object):
 
     def predict(self, input_vec):
         return self.activator(
-            reduce(lambda a, b: a + b,
-                   map(lambda xw: xw[0] * xw[1],
-                       zip(input_vec, self.weights))
+            reduce(lambda a, b: a + b,  # 计算 x * w 分量的和
+                   map(lambda xw: xw[0] * xw[1],   # x * w 分量结果的list
+                       zip(input_vec, self.weights)) # (x, w)
                    , 0.0) + self.bias)
 
     def train(self, input_vecs, labels, iteration, rate):
