@@ -79,7 +79,7 @@ class Network(object):
             layer.backward(delta)
             delta = layer.delta
         return delta
-    
+
     def update_weight(self, rate):
         for layer in self.layers:
             layer.update(rate)
