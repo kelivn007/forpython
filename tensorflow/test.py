@@ -1,8 +1,19 @@
 import tensorflow as tf
 
-a = tf.placeholder("float")
-b = tf.placeholder("float")
-y = tf.multiply(a, b)
+# a = tf.placeholder("float")
+# b = tf.placeholder("float")
+# y = tf.multiply(a, b)
+# sess = tf.Session()
+#
+# print(sess.run(y, feed_dict={a: 3, b: 3}))
+
+
+with tf.name_scope('graph') as scope:
+    matrix1 = tf.constant([[3., 3.]], name='matrix1')
+    matrix2 = tf.constant([[2.], [2.]], name='matrix2')
+    product = tf.matmul(matrix1, matrix2, name='product')
+
 sess = tf.Session()
 
-print(sess.run(y, feed_dict={a: 3, b: 3}))
+writer = tf.summary.FileWriter('logs/', sess.graph)
+sess.run(tf.global_variables_initializer())
