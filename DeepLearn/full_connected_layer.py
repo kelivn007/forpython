@@ -83,3 +83,4 @@ class Network(object):
     def update_weight(self, rate):
         for layer in self.layers:
             layer.update(rate)
+
