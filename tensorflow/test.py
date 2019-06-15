@@ -22,4 +22,4 @@ import numpy as np
 # print(2 ** 4)
 
 a = np.array([[1,2,3], [4,5,6]])
-print(np.reshape(a, (3, 2)))
+print(np.reshape(a, [-1, 2]))
